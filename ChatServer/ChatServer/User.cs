@@ -7,17 +7,17 @@ namespace ChatServer
 {
     class User
     {
-        public string username{ get; set; }
-        public string password { get; set; }
-        public string callBackURL { get; set; }
-        public bool hasPermissionToChat {get; set; }
+        public string Username{ get; set; }
+        public string Password { get; set; }
+        public string CallBackURL { get; set; }
+        public bool HasPermissionToChat {get; set; }
 
         public User(string username, string password)
         {
-            this.username = username;
-            this.password = password;
-            this.hasPermissionToChat = false;
-            this.callBackURL = string.Empty;
+            this.Username = username;
+            this.Password = password;
+            this.HasPermissionToChat = false;
+            this.CallBackURL = string.Empty;
         }
     }
 }

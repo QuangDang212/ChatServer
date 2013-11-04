@@ -5,22 +5,22 @@ using System.Text;
 
 namespace ChatServer
 {
-    static class UserDB
+    internal static class UserDB
     {
-        static List<User> userDB = new List<User>();
+        static readonly List<User> UserDb = new List<User>();
 
-        static List<User> loggedInUsers = new List<User>();
+        static readonly List<User> LoggedInUsers = new List<User>();
         
         public static List<User> GetLoggedInUsers()
         {
-            return loggedInUsers;
+            return LoggedInUsers;
         }
 
         public static bool LogUserInSystem(User user)
         {
             try
             {
-                loggedInUsers.Add(user);
+                LoggedInUsers.Add(user);
                 return true;
             }
             catch
@@ -33,7 +33,7 @@ namespace ChatServer
         {
             try
             {
-                userDB.Add(user);
+                UserDb.Add(user);
                 return true;
             }
             catch
@@ -44,7 +44,7 @@ namespace ChatServer
 
         public static User GetUserByUsername(string username)
         {
-            return userDB.Where(u => u.username.Equals(username)).FirstOrDefault();
+            return UserDb.FirstOrDefault(u => u.Username.Equals(username));
         }
     }
 }

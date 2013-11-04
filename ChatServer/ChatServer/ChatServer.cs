@@ -17,25 +17,24 @@ namespace ChatServer
 
         public string LogIn(string callBackUrl, string username, string password)
         {
-            User userToLogin = UserDB.GetUserByUsername(username);
+            var userToLogin = UserDB.GetUserByUsername(username);
 
-            if (userToLogin != null && userToLogin.password.Equals(password))
+            if (userToLogin != null && userToLogin.Password.Equals(password))
             {
-                userToLogin.callBackURL = callBackUrl;
-                userToLogin.hasPermissionToChat = true;
+                userToLogin.CallBackURL = callBackUrl;
+                userToLogin.HasPermissionToChat = true;
                 UserDB.LogUserInSystem(userToLogin);
 
                 return "Login Efectuado com sucesso!";
             }
-
             return "Login Falhou!";
         }
 
         public string SendMessage(string sender, string message)
         {
-            Thread broadcastThread = new Thread(() =>
+            var broadcastThread = new Thread(() =>
                 {
-                    using (BroadcastService broadcast = new BroadcastService())
+                    using (var broadcast = new BroadcastService())
                     {
                         broadcast.SendMessageToEveryone(sender, message);
                     }

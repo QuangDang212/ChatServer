@@ -12,8 +12,8 @@ namespace ChatServer
         {
             //testing if github works
             //testing if github works
-            Uri baseAddress = new Uri("http://localhost:1337/ChatServer");
-            ServiceHost host = new ServiceHost(typeof(ChatServer), baseAddress);
+            var baseAddress = new Uri("http://localhost:1337/ChatServer");
+            var host = new ServiceHost(typeof(ChatServer), baseAddress);
 
             host.Open();
 
