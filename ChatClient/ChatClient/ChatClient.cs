@@ -8,13 +8,10 @@ namespace ChatClient
     
     class ChatClient : IChatClient
     {
-        
-        public void SendMessage(string user, string msg)
+
+        public void SendMessage(string user, string message)
         {
-            //if (!string.IsNullOrEmpty(user) && !string.IsNullOrEmpty(msg))
-            //{
-            //    Console.WriteLine("User {0} says: {1}", user, msg);
-            //}
+            Console.WriteLine("({0}) >>> {1}", user, message);
         }
     }
 }

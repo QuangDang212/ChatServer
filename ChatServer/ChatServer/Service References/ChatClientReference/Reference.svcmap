@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="ce1baa37-8127-47e2-af56-1150360ad86d" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1099/ChatClient/" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="ff87b160-01cc-4bce-9631-9f4463861d20" SourceId="1" SourceUrl="http://localhost:1099/ChatClient/?disco" />
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="e14f39da-6ffd-47a0-97a0-d96aac91a9b1" SourceId="1" SourceUrl="http://localhost:1099/ChatClient/?xsd=xsd0" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="6490bf03-9c49-4ac2-b3f7-d2d8b4ad64db" SourceId="1" SourceUrl="http://localhost:1099/ChatClient/?xsd=xsd1" />
+    <MetadataFile FileName="ChatClient.wsdl" MetadataType="Wsdl" ID="0517c09c-3670-4b3f-bd59-0094df991f0d" SourceId="1" SourceUrl="http://localhost:1099/ChatClient/?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

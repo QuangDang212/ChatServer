@@ -11,7 +11,6 @@ namespace ChatServer
         static void Main(string[] args)
         {
             //testing if github works
-            //testing if github works
             var baseAddress = new Uri("http://localhost:1337/ChatServer");
             var host = new ServiceHost(typeof(ChatServer), baseAddress);
 

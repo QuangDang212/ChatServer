@@ -9,7 +9,7 @@ namespace ChatServer
     {
         public string Username{ get; set; }
         public string Password { get; set; }
-        public string CallBackURL { get; set; }
+        public string CallBackUrl { get; set; }
         public bool HasPermissionToChat {get; set; }
 
         public User(string username, string password)
@@ -17,7 +17,7 @@ namespace ChatServer
             this.Username = username;
             this.Password = password;
             this.HasPermissionToChat = false;
-            this.CallBackURL = string.Empty;
+            this.CallBackUrl = string.Empty;
         }
     }
 }

@@ -10,7 +10,7 @@ namespace ChatServer
     interface IChatServer
     {
         [OperationContract]
-        string LogIn(string callBackUrl, string user, string password);
+        bool LogIn(string callBackUrl, string user, string password);
 
         [OperationContract]
         string SendMessage(string token, string message);

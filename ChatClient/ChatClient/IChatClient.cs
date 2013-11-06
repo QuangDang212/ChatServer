@@ -10,6 +10,6 @@ namespace ChatClient
     interface IChatClient
     {
         [OperationContract]
-        void SendMessage(string use, string msg);
+        void SendMessage(string user, string msg);
     }
 }

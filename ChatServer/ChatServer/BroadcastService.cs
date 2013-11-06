@@ -16,8 +16,14 @@ namespace ChatServer
 
                 foreach (User user in loggedUsers)
                 {
-                    
+                    //ChatClientNotificationClient c = new ServiceReference1.ChatClientNotificationClient();
+
+                    //// para alterar o endpoint que o proxy ira usar
+                    //c.Endpoint.Address = new System.ServiceModel.EndpointAddress(user.url);
+
+                    //c.notifySendMessage(_user, _message);
                 }
+
                 return true;
             }
             catch
@@ -28,7 +34,7 @@ namespace ChatServer
 
         public void Dispose()
         {
-            Dispose();
+
         }
     }
 }

@@ -15,19 +15,19 @@ namespace ChatServer
             UserDB.AddUser(new User("u3", "p3"));
         }
 
-        public string LogIn(string callBackUrl, string username, string password)
+        public bool LogIn(string callBackUrl, string username, string password)
         {
             var userToLogin = UserDB.GetUserByUsername(username);
 
             if (userToLogin != null && userToLogin.Password.Equals(password))
             {
-                userToLogin.CallBackURL = callBackUrl;
+                userToLogin.CallBackUrl = callBackUrl;
                 userToLogin.HasPermissionToChat = true;
                 UserDB.LogUserInSystem(userToLogin);
 
-                return "Login Efectuado com sucesso!";
+                return true;
             }
-            return "Login Falhou!";
+            return false;
         }
 
         public string SendMessage(string sender, string message)
