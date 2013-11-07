@@ -18,13 +18,13 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:1099/ChatClient/" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:1099/ChatClient/181" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="ff87b160-01cc-4bce-9631-9f4463861d20" SourceId="1" SourceUrl="http://localhost:1099/ChatClient/?disco" />
-    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="e14f39da-6ffd-47a0-97a0-d96aac91a9b1" SourceId="1" SourceUrl="http://localhost:1099/ChatClient/?xsd=xsd0" />
-    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="6490bf03-9c49-4ac2-b3f7-d2d8b4ad64db" SourceId="1" SourceUrl="http://localhost:1099/ChatClient/?xsd=xsd1" />
-    <MetadataFile FileName="ChatClient.wsdl" MetadataType="Wsdl" ID="0517c09c-3670-4b3f-bd59-0094df991f0d" SourceId="1" SourceUrl="http://localhost:1099/ChatClient/?wsdl" />
+    <MetadataFile FileName="181.disco" MetadataType="Disco" ID="d14ac397-a3b9-48bb-96c5-79684c485096" SourceId="1" SourceUrl="http://localhost:1099/ChatClient/181?disco" />
+    <MetadataFile FileName="181.xsd" MetadataType="Schema" ID="a521a7f8-c58e-4360-9862-1f141b3ca727" SourceId="1" SourceUrl="http://localhost:1099/ChatClient/181?xsd=xsd0" />
+    <MetadataFile FileName="1811.xsd" MetadataType="Schema" ID="13a1b1c0-4bd0-4c00-9f2c-192a090b5bb3" SourceId="1" SourceUrl="http://localhost:1099/ChatClient/181?xsd=xsd1" />
+    <MetadataFile FileName="ChatClient1.wsdl" MetadataType="Wsdl" ID="32c87288-758b-4a3e-84a1-0b6bb3edf06d" SourceId="1" SourceUrl="http://localhost:1099/ChatClient/181?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

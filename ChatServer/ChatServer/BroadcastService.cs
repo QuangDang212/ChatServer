@@ -17,7 +17,7 @@ namespace ChatServer
                     {
                         var client = new ChatClientReference.ChatClientClient();
                         client.Endpoint.Address = new System.ServiceModel.EndpointAddress(user.CallBackUrl);
-                        client.SendMessage(sender, message);
+                        client.ReceiveMessage(sender, message);
                     }
                 }
 

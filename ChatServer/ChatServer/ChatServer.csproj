@@ -65,21 +65,18 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ChatClientReference\ChatClient.wsdl" />
-    <None Include="Service References\ChatClientReference\item.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ChatClientReference\item1.xsd">
-      <SubType>Designer</SubType>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\ChatClientReference\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\ChatClientReference\item.disco" />
-  </ItemGroup>
-  <ItemGroup>
+    <None Include="Service References\ChatClientReference\181.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ChatClientReference\1811.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ChatClientReference\ChatClient1.wsdl" />
     <None Include="Service References\ChatClientReference\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
@@ -90,6 +87,9 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ChatClientReference\181.disco" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

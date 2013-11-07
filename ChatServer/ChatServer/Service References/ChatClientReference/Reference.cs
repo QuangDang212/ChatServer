@@ -15,13 +15,13 @@ namespace ChatServer.ChatClientReference {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ChatClientReference.IChatClient")]
     public interface IChatClient {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IChatClient/SendMessage", ReplyAction="http://tempuri.org/IChatClient/SendMessageResponse")]
-        void SendMessage(string user, string msg);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IChatClient/ReceiveMessage", ReplyAction="http://tempuri.org/IChatClient/ReceiveMessageResponse")]
+        void ReceiveMessage(string user, string msg);
         
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IChatClient/SendMessage", ReplyAction="http://tempuri.org/IChatClient/SendMessageResponse")]
-        System.IAsyncResult BeginSendMessage(string user, string msg, System.AsyncCallback callback, object asyncState);
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IChatClient/ReceiveMessage", ReplyAction="http://tempuri.org/IChatClient/ReceiveMessageResponse")]
+        System.IAsyncResult BeginReceiveMessage(string user, string msg, System.AsyncCallback callback, object asyncState);
         
-        void EndSendMessage(System.IAsyncResult result);
+        void EndReceiveMessage(System.IAsyncResult result);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -32,11 +32,11 @@ namespace ChatServer.ChatClientReference {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public partial class ChatClientClient : System.ServiceModel.ClientBase<IChatClient>, IChatClient {
         
-        private BeginOperationDelegate onBeginSendMessageDelegate;
+        private BeginOperationDelegate onBeginReceiveMessageDelegate;
         
-        private EndOperationDelegate onEndSendMessageDelegate;
+        private EndOperationDelegate onEndReceiveMessageDelegate;
         
-        private System.Threading.SendOrPostCallback onSendMessageCompletedDelegate;
+        private System.Threading.SendOrPostCallback onReceiveMessageCompletedDelegate;
         
         public ChatClientClient() {
         }
@@ -57,57 +57,57 @@ namespace ChatServer.ChatClientReference {
                 base(binding, remoteAddress) {
         }
         
-        public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> SendMessageCompleted;
+        public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> ReceiveMessageCompleted;
         
-        public void SendMessage(string user, string msg) {
-            base.Channel.SendMessage(user, msg);
+        public void ReceiveMessage(string user, string msg) {
+            base.Channel.ReceiveMessage(user, msg);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public System.IAsyncResult BeginSendMessage(string user, string msg, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginSendMessage(user, msg, callback, asyncState);
+        public System.IAsyncResult BeginReceiveMessage(string user, string msg, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginReceiveMessage(user, msg, callback, asyncState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public void EndSendMessage(System.IAsyncResult result) {
-            base.Channel.EndSendMessage(result);
+        public void EndReceiveMessage(System.IAsyncResult result) {
+            base.Channel.EndReceiveMessage(result);
         }
         
-        private System.IAsyncResult OnBeginSendMessage(object[] inValues, System.AsyncCallback callback, object asyncState) {
+        private System.IAsyncResult OnBeginReceiveMessage(object[] inValues, System.AsyncCallback callback, object asyncState) {
             string user = ((string)(inValues[0]));
             string msg = ((string)(inValues[1]));
-            return this.BeginSendMessage(user, msg, callback, asyncState);
+            return this.BeginReceiveMessage(user, msg, callback, asyncState);
         }
         
-        private object[] OnEndSendMessage(System.IAsyncResult result) {
-            this.EndSendMessage(result);
+        private object[] OnEndReceiveMessage(System.IAsyncResult result) {
+            this.EndReceiveMessage(result);
             return null;
         }
         
-        private void OnSendMessageCompleted(object state) {
-            if ((this.SendMessageCompleted != null)) {
+        private void OnReceiveMessageCompleted(object state) {
+            if ((this.ReceiveMessageCompleted != null)) {
                 InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.SendMessageCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(e.Error, e.Cancelled, e.UserState));
+                this.ReceiveMessageCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(e.Error, e.Cancelled, e.UserState));
             }
         }
         
-        public void SendMessageAsync(string user, string msg) {
-            this.SendMessageAsync(user, msg, null);
+        public void ReceiveMessageAsync(string user, string msg) {
+            this.ReceiveMessageAsync(user, msg, null);
         }
         
-        public void SendMessageAsync(string user, string msg, object userState) {
-            if ((this.onBeginSendMessageDelegate == null)) {
-                this.onBeginSendMessageDelegate = new BeginOperationDelegate(this.OnBeginSendMessage);
+        public void ReceiveMessageAsync(string user, string msg, object userState) {
+            if ((this.onBeginReceiveMessageDelegate == null)) {
+                this.onBeginReceiveMessageDelegate = new BeginOperationDelegate(this.OnBeginReceiveMessage);
             }
-            if ((this.onEndSendMessageDelegate == null)) {
-                this.onEndSendMessageDelegate = new EndOperationDelegate(this.OnEndSendMessage);
+            if ((this.onEndReceiveMessageDelegate == null)) {
+                this.onEndReceiveMessageDelegate = new EndOperationDelegate(this.OnEndReceiveMessage);
             }
-            if ((this.onSendMessageCompletedDelegate == null)) {
-                this.onSendMessageCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnSendMessageCompleted);
+            if ((this.onReceiveMessageCompletedDelegate == null)) {
+                this.onReceiveMessageCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnReceiveMessageCompleted);
             }
-            base.InvokeAsync(this.onBeginSendMessageDelegate, new object[] {
+            base.InvokeAsync(this.onBeginReceiveMessageDelegate, new object[] {
                         user,
-                        msg}, this.onEndSendMessageDelegate, this.onSendMessageCompletedDelegate, userState);
+                        msg}, this.onEndReceiveMessageDelegate, this.onReceiveMessageCompletedDelegate, userState);
         }
     }
 }
