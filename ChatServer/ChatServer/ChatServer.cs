@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 
 namespace ChatServer
@@ -46,9 +43,21 @@ namespace ChatServer
             return "Mesnsagem Enviada!";
         }
 
-        public string LogOut(string token)
+        public string LogOut(string userToLogOut)
         {
-            return "LogOut efectuado com sucesso!";
+            try
+            {
+                var user = UserDB.GetUserByUsername(userToLogOut);
+                
+                if (UserDB.GetLoggedInUsers().Remove(user))
+                    return "LogOut efectuado com sucesso!";
+                return "Erro ao efetuar LogOut!";
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return "Erro ao efetuar LogOut!";
+            }
         }
     }
 }

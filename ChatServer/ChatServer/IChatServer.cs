@@ -16,7 +16,7 @@ namespace ChatServer
         string SendMessage(string token, string message);
 
         [OperationContract]
-        string LogOut(string token);
+        string LogOut(string userToLogOut);
 
     }
 }

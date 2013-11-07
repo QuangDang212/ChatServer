@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using ChatServer.ChatClientReference;
 
 namespace ChatServer
 {
@@ -13,22 +10,22 @@ namespace ChatServer
             try
             {
                 List<User> loggedUsers = UserDB.GetLoggedInUsers();
-                loggedUsers.Remove(UserDB.GetUserByUsername(sender));
 
                 foreach (User user in loggedUsers)
                 {
-                    //ChatClientNotificationClient c = new ServiceReference1.ChatClientNotificationClient();
-
-                    //// para alterar o endpoint que o proxy ira usar
-                    //c.Endpoint.Address = new System.ServiceModel.EndpointAddress(user.url);
-
-                    //c.notifySendMessage(_user, _message);
+                    if (!user.Username.Equals(sender))
+                    {
+                        var client = new ChatClientReference.ChatClientClient();
+                        client.Endpoint.Address = new System.ServiceModel.EndpointAddress(user.CallBackUrl);
+                        client.SendMessage(sender, message);
+                    }
                 }
 
                 return true;
             }
-            catch
+            catch (Exception ex)
             {
+                Console.WriteLine("Error: {0}", ex);
                 return false;
             }
         }

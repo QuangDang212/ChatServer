@@ -15,48 +15,44 @@ namespace ChatClient
         {
             string clienturl = new Random().Next(0, 1000).ToString(CultureInfo.InvariantCulture);
 
-            const string baseCallBackUrl = "http://localhost:1099/ChatClient/";
+            const string callBackUrl = "http://localhost:1099/ChatClient/";
 
-            var completeCallBackUrl = baseCallBackUrl + clienturl;
+            string completeCallBackUrl = callBackUrl + clienturl;
 
             Console.WriteLine("URL = {0}", completeCallBackUrl);
 
             // Start Client Proxy
-            var baseAddress = new Uri(baseCallBackUrl);
+            var baseAddress = new Uri(completeCallBackUrl);
             var host = new ServiceHost(typeof(ChatClient), baseAddress);
             host.Open();
 
-            Console.WriteLine("Prima qq tecla para inicar a aplicacao cliente");
-            Console.ReadKey();
-
-            var serverReference = new ChatServerClient();
-
-            Console.WriteLine("Introduza o utilizador:");
-            string user = Console.ReadLine();
-            Console.WriteLine("Introduza a palavra passe:");
-            string pass = Console.ReadLine();
-
-            serverReference.Endpoint.Address = new System.ServiceModel.EndpointAddress("http://localhost:1337/ChatServer");
-
-            if (serverReference.LogIn(completeCallBackUrl, user, pass))
+            using (var serverReference = new ChatServerClient())
             {
-                Console.WriteLine("Introduze a menssagem a enviar ou 'exit' para abandonar...");
+                Console.WriteLine("Introduza o utilizador:");
+                string username = Console.ReadLine();
+                Console.WriteLine("Introduza a palavra passe:");
+                string pass = Console.ReadLine();
 
-               var  message = Console.ReadLine();
+                serverReference.Endpoint.Address = new System.ServiceModel.EndpointAddress("http://localhost:1337/ChatServer");
 
-                while (!string.IsNullOrEmpty(message) && !message.Equals("exit"))
+                if (serverReference.LogIn(completeCallBackUrl, username, pass))
                 {
+                    Console.WriteLine("Introduze a menssagem a enviar ou 'exit' para abandonar...");
 
-                    // Vamos enviar uma mensagem
-                    serverReference.SendMessage("", message);
+                    var message = Console.ReadLine();
 
-                    message = Console.ReadLine();
+                    while (!string.IsNullOrEmpty(message) && !message.Equals("exit"))
+                    {
 
+                        // Send the message
+                        serverReference.SendMessage(username, message);
+
+                        message = Console.ReadLine();
+
+                    }
+                    serverReference.LogOut(username);
                 }
-
-                serverReference.LogOut("string");
             }
-
         }
     }
 }
