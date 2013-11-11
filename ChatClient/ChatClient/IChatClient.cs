@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.ServiceModel;
+﻿using System.ServiceModel;
 
 namespace ChatClient
 {
@@ -10,6 +6,6 @@ namespace ChatClient
     interface IChatClient
     {
         [OperationContract]
-        void ReceiveMessage(string user, string msg);
+        ReceiveMessageResponse ReceiveMessage(string user, string msg);
     }
 }

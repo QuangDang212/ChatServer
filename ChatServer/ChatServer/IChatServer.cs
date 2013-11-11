@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.ServiceModel;
+﻿using System.ServiceModel;
 
 namespace ChatServer
 {
@@ -10,13 +6,13 @@ namespace ChatServer
     interface IChatServer
     {
         [OperationContract]
-        bool LogIn(string callBackUrl, string user, string password);
+        LoginResponse LogIn(string callBackUrl, string user, string password);
 
         [OperationContract]
-        string SendMessage(string token, string message);
+        SendMessageResponse SendMessage(string token, string message);
 
         [OperationContract]
-        string LogOut(string userToLogOut);
+        LogoutResponse LogOut(string userToLogOut);
 
     }
 }

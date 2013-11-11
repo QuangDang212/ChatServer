@@ -30,9 +30,6 @@ namespace ChatServer
             }
         }
 
-        public void Dispose()
-        {
-
-        }
+        public void Dispose() { }
     }
 }

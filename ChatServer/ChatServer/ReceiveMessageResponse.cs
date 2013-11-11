@@ -1,0 +1,6 @@
+﻿namespace ChatServer
+{
+    class ReceiveMessageResponse
+    {
+    }
+}
